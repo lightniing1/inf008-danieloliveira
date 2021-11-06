@@ -23,6 +23,6 @@ public class Curso {
 	public void AdicionaAluno (Aluno aluno) {
 		for (int i = 0; i < lista_aluno_disciplina.length; i++) {
 			this.lista_aluno_disciplina[i] = aluno;
+		}
 	}
-	
 }
