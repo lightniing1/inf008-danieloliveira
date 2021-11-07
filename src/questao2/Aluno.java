@@ -2,11 +2,18 @@ package questao2;
 
 public class Aluno extends Pessoa {
 	
-	Aluno lista_aluno[] = new Aluno[60];
+	int matricula;
+	int cursos_matriculados;
+	int disciplinas_matriculadas;
+	double nota;
 	
 	public Aluno (String nome, Integer matricula) {
-		super(nome, matricula);
+		super(nome);
+		this.matricula = matricula;
 	}
 	
+	//Verificar se é possivel implementar geração automatica da matricula
+	
+	//Getters e Setters para cursos matriculados e disciplinas matriculadas
 	
 }
