@@ -18,6 +18,7 @@ public class GUI {
 
 	private JFrame frame;
 	private JTextField textField;
+	private JTextField textField_1;
 
 	/**
 	 * Launch the application.
@@ -175,10 +176,126 @@ public class GUI {
 		sl_panel.putConstraint(SpringLayout.WEST, btnNewButton_6, 0, SpringLayout.WEST, btnNewButton_5);
 		panel.add(btnNewButton_6);
 		
+		JButton btnNewButton_7 = new JButton("Remover Curso");
+		sl_panel.putConstraint(SpringLayout.WEST, btnNewButton_7, 18, SpringLayout.EAST, comboBox_1);
+		sl_panel.putConstraint(SpringLayout.SOUTH, btnNewButton_7, 0, SpringLayout.SOUTH, comboBox_1);
+		panel.add(btnNewButton_7);
+		
 		JPanel panel_2 = new JPanel();
 		tabbedPane.addTab("Disciplina", null, panel_2, null);
+		SpringLayout sl_panel_2 = new SpringLayout();
+		panel_2.setLayout(sl_panel_2);
+		
+		JLabel lblNewLabel_5 = new JLabel("Nome da Disciplina");
+		panel_2.add(lblNewLabel_5);
+		
+		JComboBox comboBox_4 = new JComboBox();
+		comboBox_4.setEditable(true);
+		sl_panel_2.putConstraint(SpringLayout.WEST, comboBox_4, 121, SpringLayout.WEST, panel_2);
+		sl_panel_2.putConstraint(SpringLayout.EAST, comboBox_4, -354, SpringLayout.EAST, panel_2);
+		sl_panel_2.putConstraint(SpringLayout.NORTH, lblNewLabel_5, 4, SpringLayout.NORTH, comboBox_4);
+		sl_panel_2.putConstraint(SpringLayout.EAST, lblNewLabel_5, -6, SpringLayout.WEST, comboBox_4);
+		sl_panel_2.putConstraint(SpringLayout.NORTH, comboBox_4, 33, SpringLayout.NORTH, panel_2);
+		panel_2.add(comboBox_4);
+		
+		JButton btnNewButton_8 = new JButton("Remover");
+		sl_panel_2.putConstraint(SpringLayout.NORTH, btnNewButton_8, -4, SpringLayout.NORTH, lblNewLabel_5);
+		sl_panel_2.putConstraint(SpringLayout.WEST, btnNewButton_8, 7, SpringLayout.EAST, comboBox_4);
+		panel_2.add(btnNewButton_8);
+		
+		JLabel lblNewLabel_6 = new JLabel("Horarios");
+		sl_panel_2.putConstraint(SpringLayout.NORTH, lblNewLabel_6, 27, SpringLayout.SOUTH, comboBox_4);
+		sl_panel_2.putConstraint(SpringLayout.WEST, lblNewLabel_6, 0, SpringLayout.WEST, lblNewLabel_5);
+		panel_2.add(lblNewLabel_6);
+		
+		JList<? extends E> list_3 = new JList();
+		sl_panel_2.putConstraint(SpringLayout.NORTH, list_3, 47, SpringLayout.SOUTH, lblNewLabel_6);
+		sl_panel_2.putConstraint(SpringLayout.WEST, list_3, 0, SpringLayout.WEST, lblNewLabel_5);
+		sl_panel_2.putConstraint(SpringLayout.SOUTH, list_3, 113, SpringLayout.SOUTH, lblNewLabel_6);
+		sl_panel_2.putConstraint(SpringLayout.EAST, list_3, 94, SpringLayout.WEST, panel_2);
+		panel_2.add(list_3);
+		
+		JButton btnNewButton_9 = new JButton("Remover horario");
+		sl_panel_2.putConstraint(SpringLayout.NORTH, btnNewButton_9, 107, SpringLayout.SOUTH, comboBox_4);
+		sl_panel_2.putConstraint(SpringLayout.WEST, btnNewButton_9, 0, SpringLayout.WEST, comboBox_4);
+		panel_2.add(btnNewButton_9);
+		
+		JComboBox comboBox_5 = new JComboBox();
+		sl_panel_2.putConstraint(SpringLayout.NORTH, comboBox_5, 6, SpringLayout.SOUTH, lblNewLabel_6);
+		sl_panel_2.putConstraint(SpringLayout.WEST, comboBox_5, 0, SpringLayout.WEST, lblNewLabel_5);
+		sl_panel_2.putConstraint(SpringLayout.EAST, comboBox_5, 0, SpringLayout.EAST, list_3);
+		panel_2.add(comboBox_5);
+		
+		JButton btnNewButton_10 = new JButton("Adicionar horario");
+		sl_panel_2.putConstraint(SpringLayout.NORTH, btnNewButton_10, 0, SpringLayout.NORTH, comboBox_5);
+		sl_panel_2.putConstraint(SpringLayout.WEST, btnNewButton_10, 0, SpringLayout.WEST, comboBox_4);
+		panel_2.add(btnNewButton_10);
+		
+		JLabel lblNewLabel_7 = new JLabel("Aluno");
+		sl_panel_2.putConstraint(SpringLayout.NORTH, lblNewLabel_7, 47, SpringLayout.SOUTH, list_3);
+		sl_panel_2.putConstraint(SpringLayout.WEST, lblNewLabel_7, 0, SpringLayout.WEST, lblNewLabel_5);
+		panel_2.add(lblNewLabel_7);
+		
+		JComboBox comboBox_6 = new JComboBox();
+		sl_panel_2.putConstraint(SpringLayout.NORTH, comboBox_6, 6, SpringLayout.SOUTH, lblNewLabel_7);
+		sl_panel_2.putConstraint(SpringLayout.WEST, comboBox_6, 27, SpringLayout.WEST, panel_2);
+		panel_2.add(comboBox_6);
+		
+		JButton btnNewButton_11 = new JButton("Adicionar aluno");
+		sl_panel_2.putConstraint(SpringLayout.NORTH, btnNewButton_11, 91, SpringLayout.SOUTH, btnNewButton_9);
+		sl_panel_2.putConstraint(SpringLayout.EAST, comboBox_6, -6, SpringLayout.WEST, btnNewButton_11);
+		sl_panel_2.putConstraint(SpringLayout.EAST, btnNewButton_11, 0, SpringLayout.EAST, comboBox_4);
+		panel_2.add(btnNewButton_11);
+		
+		JList<? extends E> list_4 = new JList();
+		sl_panel_2.putConstraint(SpringLayout.NORTH, list_4, 19, SpringLayout.SOUTH, comboBox_6);
+		sl_panel_2.putConstraint(SpringLayout.WEST, list_4, 27, SpringLayout.WEST, panel_2);
+		sl_panel_2.putConstraint(SpringLayout.SOUTH, list_4, -33, SpringLayout.SOUTH, panel_2);
+		sl_panel_2.putConstraint(SpringLayout.EAST, list_4, 0, SpringLayout.EAST, comboBox_6);
+		panel_2.add(list_4);
+		
+		JButton btnNewButton_12 = new JButton("Remover aluno");
+		sl_panel_2.putConstraint(SpringLayout.NORTH, btnNewButton_12, 70, SpringLayout.SOUTH, btnNewButton_11);
+		sl_panel_2.putConstraint(SpringLayout.WEST, btnNewButton_12, 0, SpringLayout.WEST, btnNewButton_11);
+		panel_2.add(btnNewButton_12);
 		
 		JPanel panel_3 = new JPanel();
 		tabbedPane.addTab("Aluno", null, panel_3, null);
+		SpringLayout sl_panel_3 = new SpringLayout();
+		panel_3.setLayout(sl_panel_3);
+		
+		JLabel lblNewLabel_8 = new JLabel("Adicionar aluno");
+		panel_3.add(lblNewLabel_8);
+		
+		textField_1 = new JTextField();
+		sl_panel_3.putConstraint(SpringLayout.WEST, textField_1, 113, SpringLayout.WEST, panel_3);
+		sl_panel_3.putConstraint(SpringLayout.EAST, textField_1, -373, SpringLayout.EAST, panel_3);
+		sl_panel_3.putConstraint(SpringLayout.NORTH, lblNewLabel_8, 3, SpringLayout.NORTH, textField_1);
+		sl_panel_3.putConstraint(SpringLayout.EAST, lblNewLabel_8, -7, SpringLayout.WEST, textField_1);
+		sl_panel_3.putConstraint(SpringLayout.NORTH, textField_1, 35, SpringLayout.NORTH, panel_3);
+		panel_3.add(textField_1);
+		textField_1.setColumns(10);
+		
+		JLabel lblNewLabel_9 = new JLabel("Alunos cadastrados");
+		sl_panel_3.putConstraint(SpringLayout.NORTH, lblNewLabel_9, 35, SpringLayout.SOUTH, lblNewLabel_8);
+		sl_panel_3.putConstraint(SpringLayout.WEST, lblNewLabel_9, 0, SpringLayout.WEST, lblNewLabel_8);
+		panel_3.add(lblNewLabel_9);
+		
+		JList<? extends E> list_5 = new JList();
+		sl_panel_3.putConstraint(SpringLayout.NORTH, list_5, 11, SpringLayout.SOUTH, lblNewLabel_9);
+		sl_panel_3.putConstraint(SpringLayout.WEST, list_5, 0, SpringLayout.WEST, lblNewLabel_8);
+		sl_panel_3.putConstraint(SpringLayout.SOUTH, list_5, 144, SpringLayout.SOUTH, lblNewLabel_9);
+		sl_panel_3.putConstraint(SpringLayout.EAST, list_5, 183, SpringLayout.WEST, panel_3);
+		panel_3.add(list_5);
+		
+		JButton btnNewButton_13 = new JButton("Remover aluno");
+		sl_panel_3.putConstraint(SpringLayout.NORTH, btnNewButton_13, 109, SpringLayout.SOUTH, textField_1);
+		sl_panel_3.putConstraint(SpringLayout.WEST, btnNewButton_13, 6, SpringLayout.EAST, list_5);
+		panel_3.add(btnNewButton_13);
+		
+		JButton btnNewButton_14 = new JButton("Adicionar aluno");
+		sl_panel_3.putConstraint(SpringLayout.NORTH, btnNewButton_14, 0, SpringLayout.NORTH, textField_1);
+		sl_panel_3.putConstraint(SpringLayout.WEST, btnNewButton_14, 6, SpringLayout.EAST, textField_1);
+		panel_3.add(btnNewButton_14);
 	}
 }
