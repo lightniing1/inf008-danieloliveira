@@ -10,10 +10,15 @@ public class Curso {
     private Disciplina disciplina;
     private ArrayList<Aluno> lista_alunos_no_curso = new ArrayList<Aluno>();
     private ArrayList<Integer> lista_horarios_curso = new ArrayList<Integer>();
+    private ArrayList<Disciplina> lista_disciplina_no_curso = new ArrayList<Disciplina>();
 
     public Curso (String nome) {
             this.nome = nome;
             codigo_curso = nome.toUpperCase().substring(0, 2);
+    }
+    
+    public String NomeCurso (){
+        return this.nome;
     }
 
     public void AdicionaAluno (Aluno aluno) {
@@ -21,7 +26,7 @@ public class Curso {
     }
 
     public void AdicionaDisciplina (Disciplina disciplina){
-        this.disciplina = disciplina;
+        this.lista_disciplina_no_curso.add(disciplina);
     }
 
     public void AdicionaHorario (int horario){

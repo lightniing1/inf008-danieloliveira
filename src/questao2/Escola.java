@@ -23,22 +23,39 @@ public class Escola {
     private ArrayList<Aluno> lista_alunos = new ArrayList<Aluno>();
     
     //Curso
-    public void AdicionaCurso(String nome){
-       this.lista_cursos.add(new Curso(nome));
+    public void AdicionaCurso(Curso curso){
+       this.lista_cursos.add(curso);
     }
     
     public void AdicionaDisciplinaAoCurso (String NomeDoCurso, String NomeDaDisciplina){
+        
         int curso = this.lista_cursos.indexOf(NomeDoCurso);
         int disciplina = this.lista_disciplinas.indexOf(NomeDaDisciplina);
         
-        this.lista_cursos.get(curso).AdicionaDisciplina(this.lista_disciplinas.get(disciplina));
+        System.out.println(curso);
+        
+        if(curso == -1){
+            System.out.println("Curso nao encontrado");
+        } else if (disciplina == -1){
+            System.out.println("Disciplina nao encontrado");
+        } else {
+           this.lista_cursos.get(curso).AdicionaDisciplina(this.lista_disciplinas.get(disciplina)); 
+        }
     }
     
     public void AdicionaAlunoAoCurso (String NomeDoCurso, String NomeDoAluno){
+        
         int curso = this.lista_cursos.indexOf(NomeDoCurso);
         int aluno = this.lista_alunos.indexOf(NomeDoAluno);
         
-        this.lista_cursos.get(curso).AdicionaAluno(this.lista_alunos.get(aluno));
+        if(curso == -1){
+            System.out.println("Curso nao encontrado");
+        } else if (aluno == -1){
+            System.out.println("Aluno nao encontrado");
+        } else {
+           this.lista_cursos.get(curso).AdicionaAluno(this.lista_alunos.get(aluno)); 
+        }
+        
     }
     
     public void AdicionaHorarioCurso (String NomeDoCurso, Integer horario){
