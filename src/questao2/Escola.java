@@ -23,9 +23,15 @@ public class Escola {
     private ArrayList<Aluno> lista_alunos = new ArrayList<Aluno>();
     
     //Curso
-    public void AdicionaCurso(Curso curso){
+    public void AdicionaCurso(String nome){
+       
+       Curso curso = new Curso(nome);
        this.lista_cursos.add(curso);
+       
+       System.out.println(this.lista_cursos.indexOf(curso));
     }
+    
+   
     
     public void AdicionaDisciplinaAoCurso (String NomeDoCurso, String NomeDaDisciplina){
         
