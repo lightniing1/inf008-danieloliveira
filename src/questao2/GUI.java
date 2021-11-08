@@ -1147,7 +1147,7 @@ public class GUI extends javax.swing.JFrame {
         matricula += 1;
         Discente discente = new Discente(jTextField2.getText(), matricula);
         jComboBox18.addItem(jTextField2.getText());
-                // TODO add your handling code here:
+        // TODO add your handling code here:
     }//GEN-LAST:event_jButton13ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed

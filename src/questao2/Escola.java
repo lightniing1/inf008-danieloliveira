@@ -19,53 +19,67 @@ public class Escola {
     
     private ArrayList<Curso> lista_cursos = new ArrayList<Curso>();
     private ArrayList<Disciplina> lista_disciplinas = new ArrayList<Disciplina>();
+    private ArrayList<Discente> lista_professores = new ArrayList<Discente>();
     private ArrayList<Aluno> lista_alunos = new ArrayList<Aluno>();
     
     //Curso
     public void AdicionaCurso(String nome){
-       lista_cursos.add(new Curso(nome));
+       this.lista_cursos.add(new Curso(nome));
     }
     
     public void AdicionaDisciplinaAoCurso (String NomeDoCurso, String NomeDaDisciplina){
-        int curso = lista_cursos.indexOf(NomeDoCurso);
-        int disciplina = lista_disciplinas.indexOf(NomeDaDisciplina);
+        int curso = this.lista_cursos.indexOf(NomeDoCurso);
+        int disciplina = this.lista_disciplinas.indexOf(NomeDaDisciplina);
         
-        lista_cursos.get(curso).AdicionaDisciplina(lista_disciplinas.get(disciplina));
+        this.lista_cursos.get(curso).AdicionaDisciplina(this.lista_disciplinas.get(disciplina));
     }
     
     public void AdicionaAlunoAoCurso (String NomeDoCurso, String NomeDoAluno){
-        int curso = lista_cursos.indexOf(NomeDoCurso);
-        int aluno = lista_alunos.indexOf(NomeDoAluno);
+        int curso = this.lista_cursos.indexOf(NomeDoCurso);
+        int aluno = this.lista_alunos.indexOf(NomeDoAluno);
         
-        lista_cursos.get(curso).AdicionaAluno(lista_alunos.get(aluno));
+        this.lista_cursos.get(curso).AdicionaAluno(this.lista_alunos.get(aluno));
     }
     
-    public void SetHorarioCurso (Integer horario){
-        lista_cursos[index].SetHorario(horario);
+    public void AdicionaHorarioCurso (String NomeDoCurso, Integer horario){
+        int curso = this.lista_cursos.indexOf(NomeDoCurso);
+        
+        this.lista_cursos.get(curso).AdicionaHorario(horario);
     }
     
     //Disciplina
     public void AdicionaDisciplina (String nome){
-        lista_disciplinas[index] = nome;
+        this.lista_disciplinas.add(new Disciplina(nome));
     }
     
-    public void AdicionaProfessorADisciplina (String nome){
-        lista_disciplinas[index] = lista_professores[index]
+    public void AdicionaProfessorADisciplina (String NomeDaDisciplina, String NomeDoProfessor){
+        
+        int disciplina = this.lista_disciplinas.indexOf(NomeDaDisciplina);
+        int professor = this.lista_professores.indexOf(NomeDoProfessor);
+        
+        this.lista_disciplinas.get(disciplina).setDicenteDisciplina(this.lista_professores.get(professor));
+    }
+    
+    public void AdicionaHorarioADisciplina (int horario){
+        
+        
+    }
+    
+    public void ListaAlunosDaDisciplina (){
+        
+        
     }
     
     //Professor
     public void AdicionaProfessor (String nome){
-        lista_professores.add(nome)
+        lista_professores.add(new Discente(nome));
     }
     
     //Aluno
     public void AdicionaAluno (String nome){
-        lista_alunos.add(nome);
+        lista_alunos.add(new Aluno(nome));
     }
     
-    public void AdicionaAlunoAoCurso (String NomeDoAluno, String NomeDoCurso){
-        
-    }
     
     public void RemoveAlunoDoCurso (String NomeDoAluno, String NomeDoCurso){
         
