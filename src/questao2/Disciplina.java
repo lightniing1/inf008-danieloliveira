@@ -26,9 +26,9 @@ public class Disciplina {
 		System.out.println(discente);
 	}
 	
-    public void setNomeDisciplina(String nome_disciplina) { 
+        public void setNomeDisciplina(String nome_disciplina) { 
     	this.nome_disciplina = nome_disciplina; 
-    }
+        }
     
 	
 	public void setDicenteDisciplina(Discente discente) {
@@ -42,7 +42,7 @@ public class Disciplina {
 		}
 	}
 	
-	//Verificar depois se vai ser necessário trocar a logica para numero de horarios da disciplina
+	//Verificar depois se vai ser necessï¿½rio trocar a logica para numero de horarios da disciplina
 	public void setNumeroAulasDisciplina () {
 		this.numero_aulas = numero_aulas + 1;
 	}

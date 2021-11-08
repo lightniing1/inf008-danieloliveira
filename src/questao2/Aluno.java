@@ -12,7 +12,7 @@ public class Aluno extends Pessoa {
 		this.matricula = matricula;
 	}
 	
-	//Verificar se é possivel implementar geração automatica da matricula
+	//Verificar se ï¿½ possivel implementar geracao automatica da matricula
 	
 	//Getters e Setters para cursos matriculados e disciplinas matriculadas
 	
