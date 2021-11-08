@@ -47,7 +47,7 @@ public class Escola {
         this.lista_cursos.get(curso).AdicionaHorario(horario);
     }
     
-    //Disciplina
+    //Disciplina***********************************************************************
     public void AdicionaDisciplina (String nome){
         this.lista_disciplinas.add(new Disciplina(nome));
     }
@@ -58,6 +58,14 @@ public class Escola {
         int professor = this.lista_professores.indexOf(NomeDoProfessor);
         
         this.lista_disciplinas.get(disciplina).setDicenteDisciplina(this.lista_professores.get(professor));
+        
+    }
+    
+    public void AdicionaAlunoADisciplina (String NomeDoAluno, String NomeDaDisciplina){
+        int disciplina = this.lista_disciplinas.indexOf(NomeDaDisciplina);
+        int aluno = this.lista_alunos.indexOf(NomeDoAluno);
+        
+        this.lista_disciplinas.get(disciplina).AdicionaAluno(this.lista_alunos.get(aluno));
     }
     
     public void AdicionaHorarioADisciplina (int horario){
@@ -70,25 +78,30 @@ public class Escola {
         
     }
     
-    //Professor
+    //Professor***********************************************************************
     public void AdicionaProfessor (String nome){
         lista_professores.add(new Discente(nome));
     }
     
-    //Aluno
+    //Aluno***********************************************************************
     public void AdicionaAluno (String nome){
         lista_alunos.add(new Aluno(nome));
     }
+    
+    public void AdicionaNotaAoAlunoNaDisciplina (String NomeDoAluno, String NomeDaDisciplina, float nota){
+        
+        //int disciplina = this.lista_disciplinas.indexOf(NomeDaDisciplina);
+        int aluno = this.lista_alunos.indexOf(NomeDoAluno);
+        
+        this.lista_alunos.get(aluno).AdicionaNotaAluno(NomeDaDisciplina, nota);
+        
+    };
     
     
     public void RemoveAlunoDoCurso (String NomeDoAluno, String NomeDoCurso){
         
     }
     
-    public void AdicionaAlunoADisciplina (String NomeDoAluno, String NomeDaDisciplina){
-        //Coloca aluno na disciplina indicada
-        lista_alunos.add(nome);
-    }
     
     public void RemoverAlunoDaDisciplina (String NomeDoAluno, String NomeDaDisciplina){
         
