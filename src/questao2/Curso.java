@@ -32,5 +32,9 @@ public class Curso {
     public void AdicionaHorario (String horario){
         this.lista_horarios_curso.add(horario);
     }
+    
+    public int NumeroAlunos(){
+        return this.lista_alunos_no_curso.size();
+    }
         
 }

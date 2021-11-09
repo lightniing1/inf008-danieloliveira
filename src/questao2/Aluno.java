@@ -6,6 +6,7 @@ import java.util.HashMap;
 public class Aluno extends Pessoa {
     
     HashMap<String, Float> Notas = new HashMap<String, Float>();
+    private ArrayList<String> lista_horarios = new ArrayList<String>();
     
     Aluno (String nome) {
     	super(nome);
@@ -16,8 +17,8 @@ public class Aluno extends Pessoa {
         this.Notas.put(NomeDisciplina, nota);
     }
     
-    public void AdicionarHorario(){
-    
+    public void AdicionarHorario(String horario){
+        this.lista_horarios.add(horario);
     }
     
 }

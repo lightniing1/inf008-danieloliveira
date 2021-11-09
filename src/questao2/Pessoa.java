@@ -3,7 +3,6 @@ package questao2;
 public abstract class Pessoa {
 
     private String nome;
-    
 
     public Pessoa (String nome) {
             this.nome = nome;
@@ -13,7 +12,7 @@ public abstract class Pessoa {
         return this.nome;
     }
     
-    abstract void AdicionarHorario();
+    abstract void AdicionarHorario(String horario);
 
 }
 

@@ -45,6 +45,10 @@ public class Disciplina {
     public void AdicionaHorario (String horario){
         this.lista_horarios_disciplina.add(horario);
     }
+    
+    public int NumeroAlunos(){
+        return this.lista_alunos_na_disciplina.size();
+    }
 
 }
 

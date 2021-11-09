@@ -64,8 +64,8 @@ public class Escola {
     
     public void AdicionaAlunoAoCurso (String NomeDoCurso, String NomeDoAluno){
         
-        int curso = this.lista_cursos.indexOf(NomeDoCurso);
-        int aluno = this.lista_alunos.indexOf(NomeDoAluno);
+        int curso = ProcuraCurso(NomeDoCurso);
+        int aluno = ProcuraAluno(NomeDoAluno);
         
         if(curso == -1){
             System.out.println("Curso nao encontrado");
@@ -77,10 +77,16 @@ public class Escola {
         
     }
     
-    public void AdicionaHorarioCurso (String NomeDoCurso, Integer horario){
-        int curso = this.lista_cursos.indexOf(NomeDoCurso);
+    public void AdicionaHorarioCurso (String NomeDoCurso, String horario){
+        int curso = ProcuraCurso(NomeDoCurso);
         
         this.lista_cursos.get(curso).AdicionaHorario(horario);
+    }
+    
+    public int NumeroAlunosNoCurso (String NomeDoCurso){
+        int curso = ProcuraCurso(NomeDoCurso);
+        
+        return this.lista_cursos.get(curso).NumeroAlunos();
     }
     
     //Disciplina***********************************************************************
@@ -106,14 +112,16 @@ public class Escola {
         this.lista_disciplinas.get(disciplina).AdicionaAluno(this.lista_alunos.get(aluno));
     }
     
-    public void AdicionaHorarioADisciplina (int horario){
+    public void AdicionaHorarioADisciplina (String NomeDaDisciplina, String horario){
+        int disciplina = ProcuraDisciplina(NomeDaDisciplina);
         
-        
+        this.lista_disciplinas.get(disciplina).AdicionaHorario(horario);
     }
     
-    public void ListaAlunosDaDisciplina (){
+    public int ListaAlunosDaDisciplina (String NomeDaDisciplina){
+        int disciplina = ProcuraDisciplina(NomeDaDisciplina);
         
-        
+        return this.lista_disciplinas.get(disciplina).NumeroAlunos();
     }
     
     private int ProcuraDisciplina(String nome){   
@@ -153,7 +161,6 @@ public class Escola {
     }
     
     private int ProcuraAluno(String nome){   
-        
         int posicao = -1;
         
         for (int i = 0; i < lista_alunos.size(); i++){
