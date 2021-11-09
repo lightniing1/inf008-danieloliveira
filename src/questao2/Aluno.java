@@ -16,4 +16,8 @@ public class Aluno extends Pessoa {
         this.Notas.put(NomeDisciplina, nota);
     }
     
+    public void AdicionarHorario(){
+    
+    }
+    
 }

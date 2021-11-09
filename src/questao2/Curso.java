@@ -9,7 +9,7 @@ public class Curso {
     private Integer horarios_curso;
     private Disciplina disciplina;
     private ArrayList<Aluno> lista_alunos_no_curso = new ArrayList<Aluno>();
-    private ArrayList<Integer> lista_horarios_curso = new ArrayList<Integer>();
+    private ArrayList<String> lista_horarios_curso = new ArrayList<String>();
     private ArrayList<Disciplina> lista_disciplina_no_curso = new ArrayList<Disciplina>();
 
     public Curso (String nome) {
@@ -29,7 +29,7 @@ public class Curso {
         this.lista_disciplina_no_curso.add(disciplina);
     }
 
-    public void AdicionaHorario (int horario){
+    public void AdicionaHorario (String horario){
         this.lista_horarios_curso.add(horario);
     }
         

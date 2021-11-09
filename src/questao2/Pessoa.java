@@ -1,8 +1,9 @@
 package questao2;
 
-public class Pessoa {
+public abstract class Pessoa {
 
     private String nome;
+    
 
     public Pessoa (String nome) {
             this.nome = nome;
@@ -11,6 +12,8 @@ public class Pessoa {
     public String Nome(){
         return this.nome;
     }
+    
+    abstract void AdicionarHorario();
 
 }
 

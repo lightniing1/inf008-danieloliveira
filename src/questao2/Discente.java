@@ -6,5 +6,9 @@ public class Discente extends Pessoa {
 	super(nome);
 	//this.matricula = matricula;
     }
+    
+    public void AdicionarHorario(){
+    
+    }
 
 }
