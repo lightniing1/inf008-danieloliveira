@@ -7,7 +7,10 @@ public class Pessoa {
     public Pessoa (String nome) {
             this.nome = nome;
     }
-
+    
+    public String Nome(){
+        return this.nome;
+    }
 
 }
 
