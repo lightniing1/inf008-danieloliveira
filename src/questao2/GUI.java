@@ -197,6 +197,11 @@ public class GUI extends javax.swing.JFrame {
         jComboBox1.setToolTipText("");
 
         jButton2.setText("Remover");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
@@ -292,6 +297,11 @@ public class GUI extends javax.swing.JFrame {
         jLabel6.setText("Remover horario");
 
         jButton6.setText("Remover");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
 
         jComboBox9.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "00:00", "01:00", "02:00", "03:00", "04:00", "05:00", "06:00", "07:00", "08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00", "23:00" }));
 
@@ -440,9 +450,14 @@ public class GUI extends javax.swing.JFrame {
 
         jLabel10.setText("Nome da Disciplina");
 
-        jComboBox5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox5.setModel(jComboBox6.getModel());
 
         jButton8.setText("Remover");
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
         jPanel11.setLayout(jPanel11Layout);
@@ -1140,26 +1155,51 @@ public class GUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        jComboBox4.addItem(jTextField1.getText());
-        escola.AdicionaCurso(jTextField1.getText());
-        //System.out.println(jComboBox4.getSelectedItem().toString());
-        
-        
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void jButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton18ActionPerformed
+        // TODO add your handling code here:
+        String curso = jComboBox14.getSelectedItem().toString();
+        //Integer n_alunos = escola.NumeroAlunosNoCurso(curso);
 
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        
-        int id_disciplina = escola.AdicionaDisciplina(jTextField3.getText());
-        jComboBox6.addItem(id_disciplina + " " + jTextField3.getText());
-        
-    }//GEN-LAST:event_jButton7ActionPerformed
+        String[] aluno = jComboBox16.getSelectedItem().toString().split(" ", 2);
+        Integer id_aluno = Integer.parseInt(aluno[0]);
+
+        String[] disciplina = jComboBox6.getSelectedItem().toString().split(" ", 2);
+        Integer id_disciplina = Integer.parseInt(disciplina[0]);
+        //jLabel42.setText(n_alunos.toString());
+
+        //Cadastra aluno no curso
+        escola.AdicionaAlunoADisciplina(id_aluno, id_disciplina);
+    }//GEN-LAST:event_jButton18ActionPerformed
+
+    private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton17ActionPerformed
+
+        // Incrementa contador na aba Curso > Informacao > Alunos matriculados
+        String curso = jComboBox13.getSelectedItem().toString();
+
+        Integer n_alunos = escola.NumeroAlunosNoCurso(curso);
+
+        String[] aluno = jComboBox16.getSelectedItem().toString().split(" ", 2);
+        Integer id_aluno = Integer.parseInt(aluno[0]);
+
+        jLabel42.setText(n_alunos.toString());
+
+        //Cadastra aluno no curso
+        escola.AdicionaAlunoAoCurso(curso, id_aluno);
+
+    }//GEN-LAST:event_jButton17ActionPerformed
+
+    private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
+        // TODO add your handling code here:
+
+        int id_aluno = escola.AdicionaAluno(jTextField4.getText());
+        jComboBox16.addItem(id_aluno + " " + jTextField4.getText());
+    }//GEN-LAST:event_jButton15ActionPerformed
 
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
-        
+
         int id_professor = escola.AdicionaProfessor(jTextField2.getText());
         jComboBox18.addItem(id_professor + " " + jTextField2.getText());
-        
+
     }//GEN-LAST:event_jButton13ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
@@ -1169,20 +1209,17 @@ public class GUI extends javax.swing.JFrame {
         Integer id_disciplina = Integer.parseInt(disciplina[0]);
         String[] professor = jComboBox18.getSelectedItem().toString().split(" ", 2);
         Integer id_professor = Integer.parseInt(professor[0]);
-        
+
         escola.AdicionaProfessorADisciplina(id_disciplina, id_professor);
-        
+
     }//GEN-LAST:event_jButton9ActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        
-        String[] disciplina = jComboBox2.getSelectedItem().toString().split(" ", 2);
-        Integer id_disciplina = Integer.parseInt(disciplina[0]);
-        escola.AdicionaDisciplinaAoCurso(jComboBox4.getSelectedItem().toString(), id_disciplina);
-        
-        
-// TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+
+        int id_disciplina = escola.AdicionaDisciplina(jTextField3.getText());
+        jComboBox6.addItem(id_disciplina + " " + jTextField3.getText());
+
+    }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
@@ -1191,45 +1228,58 @@ public class GUI extends javax.swing.JFrame {
         jComboBox9.removeItemAt(jComboBox9.getSelectedIndex());
     }//GEN-LAST:event_jButton5ActionPerformed
 
-    private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton17ActionPerformed
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
 
-        // Incrementa contador na aba Curso > Informacao > Alunos matriculados
-        String curso = jComboBox13.getSelectedItem().toString();
-        
-        Integer n_alunos = escola.NumeroAlunosNoCurso(curso); 
-        
-        String[] aluno = jComboBox16.getSelectedItem().toString().split(" ", 2);
-        Integer id_aluno = Integer.parseInt(aluno[0]);
-        
-        jLabel42.setText(n_alunos.toString());
-        
-        //Cadastra aluno no curso
-        escola.AdicionaAlunoAoCurso(curso, id_aluno);
-        
-    }//GEN-LAST:event_jButton17ActionPerformed
-
-    private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
-        // TODO add your handling code here:
- 
-        int id_aluno = escola.AdicionaAluno(jTextField4.getText());
-        jComboBox16.addItem(id_aluno + " " + jTextField4.getText());
-    }//GEN-LAST:event_jButton15ActionPerformed
-
-    private void jButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton18ActionPerformed
-        // TODO add your handling code here:
-        String curso = jComboBox14.getSelectedItem().toString();
-        //Integer n_alunos = escola.NumeroAlunosNoCurso(curso); 
-        
-        String[] aluno = jComboBox16.getSelectedItem().toString().split(" ", 2);
-        Integer id_aluno = Integer.parseInt(aluno[0]);
-        
-        String[] disciplina = jComboBox6.getSelectedItem().toString().split(" ", 2);
+        String[] disciplina = jComboBox2.getSelectedItem().toString().split(" ", 2);
         Integer id_disciplina = Integer.parseInt(disciplina[0]);
-        //jLabel42.setText(n_alunos.toString());
+        escola.AdicionaDisciplinaAoCurso(jComboBox4.getSelectedItem().toString(), id_disciplina);
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        jComboBox4.addItem(jTextField1.getText());
+        escola.AdicionaCurso(jTextField1.getText());
+        //System.out.println(jComboBox4.getSelectedItem().toString());
+
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        escola.RemoveCurso(jComboBox1.getSelectedItem().toString());
+        jComboBox4.removeAllItems();
+        for (int i = 0; i < escola.QtdCursos(); i++){
+            String curso = escola.NomeCurso(i);
+            jComboBox4.addItem(curso);
+        }
         
-        //Cadastra aluno no curso
-        escola.AdicionaAlunoADisciplina(id_aluno, id_disciplina);
-    }//GEN-LAST:event_jButton18ActionPerformed
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        // TODO add your handling code here:
+        escola.AdicionaHorarioCurso(jComboBox4.getSelectedItem().toString(), jComboBox9.getSelectedItem().toString());
+        jComboBox9.addItem(jComboBox21.getSelectedItem().toString());
+        jComboBox21.removeItemAt(jComboBox9.getSelectedIndex());
+        
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        // TODO add your handling code here:
+        
+        String[] disciplina = jComboBox5.getSelectedItem().toString().split(" ", 2);
+        Integer idd_disciplina = Integer.parseInt(disciplina[0]);
+        
+        escola.RemoveDisciplina(idd_disciplina);
+        
+        jComboBox6.removeAllItems();
+        
+        for (int i = 0; i < escola.QtdDisciplinas(); i++){
+            String nome_disciplina = escola.NomeDisciplina(i);
+            Integer id_disciplina = escola.getIdDisciplina(i);
+            jComboBox6.addItem(id_disciplina + " " + nome_disciplina);
+        }
+        
+    }//GEN-LAST:event_jButton8ActionPerformed
 
     /**
      * @param args the command line arguments

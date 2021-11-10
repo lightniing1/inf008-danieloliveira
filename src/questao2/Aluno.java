@@ -5,9 +5,10 @@ import java.util.HashMap;
 
 public class Aluno extends Pessoa {
     
-    HashMap<Integer, Float> Disciplinas = new HashMap<Integer, Float>();
+    private HashMap<Integer, Float> Disciplinas = new HashMap<Integer, Float>();
     private ArrayList<String> lista_horarios = new ArrayList<String>();
-    Integer matricula = 0;
+    private Integer matricula = 0;
+    private String curso;
     
     Aluno (String nome) {
     	super(nome);
@@ -20,6 +21,14 @@ public class Aluno extends Pessoa {
     
     public Integer getMatricula(){
         return this.matricula;
+    }
+    
+    public void setCurso(String curso){
+        this.curso = curso;
+    }
+    
+    public String getCurso(){
+        return this.curso;
     }
     
     public void AdicionaDisciplina(Integer IDDisciplina){

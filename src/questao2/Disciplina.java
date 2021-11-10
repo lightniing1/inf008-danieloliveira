@@ -28,6 +28,22 @@ public class Disciplina {
     public void AdicionaAluno(Aluno aluno){
         this.lista_alunos_na_disciplina.add(aluno);
     }
+    
+    public void RemoveAluno(int aluno){
+        int posicao = ProcuraAluno(aluno);
+        this.lista_alunos_na_disciplina.remove(posicao);
+    }
+    
+    private int ProcuraAluno(Integer ID){
+        int posicao = -1;
+        
+        for (int i = 0; i < lista_alunos_na_disciplina.size(); i++){
+            if (lista_alunos_na_disciplina.get(i).getMatricula().equals(ID)){
+                posicao = i;
+            }
+        }    
+        return posicao;
+    }
 
     public void setNomeDisciplina(String nome_disciplina) { 
         this.nome_disciplina = nome_disciplina; 

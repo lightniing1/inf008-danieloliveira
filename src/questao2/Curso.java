@@ -36,5 +36,21 @@ public class Curso {
     public int NumeroAlunos(){
         return this.lista_alunos_no_curso.size();
     }
+    
+    private int ProcuraAluno(Integer ID){
+        int posicao = -1;
+        
+        for (int i = 0; i < lista_alunos_no_curso.size(); i++){
+            if (lista_alunos_no_curso.get(i).getMatricula().equals(ID)){
+                posicao = i;
+            }
+        }    
+        return posicao;
+    }
+    
+    public void RemoveAluno(int aluno){
+        int posicao = ProcuraAluno(aluno);
+        this.lista_alunos_no_curso.remove(posicao);
+    }
         
 }

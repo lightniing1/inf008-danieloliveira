@@ -19,8 +19,8 @@ public class Escola {
     */
     
     private ArrayList<Curso> lista_cursos = new ArrayList<Curso>();
-    //private ArrayList<Disciplina> lista_disciplinas = new ArrayList<Disciplina>();
-    private HashMap<Integer, Disciplina> lista_disciplinas = new HashMap<Integer, Disciplina>();
+    private ArrayList<Disciplina> lista_disciplinas = new ArrayList<Disciplina>();
+    //private HashMap<Integer, Disciplina> lista_disciplinas = new HashMap<Integer, Disciplina>();
     private ArrayList<Discente> lista_professores = new ArrayList<Discente>();
     private ArrayList<Aluno> lista_alunos = new ArrayList<Aluno>();
     
@@ -95,6 +95,20 @@ public class Escola {
         return this.lista_cursos.get(curso).NumeroAlunos();
     }
     
+    public void RemoveCurso (String NomeDoCurso){
+        int curso = ProcuraCurso(NomeDoCurso);
+        
+        this.lista_cursos.remove(curso);
+    }
+    
+    public String NomeCurso(Integer index){
+        return lista_cursos.get(index).NomeCurso();
+    }
+    
+    public Integer QtdCursos (){
+        return lista_cursos.size();
+    }
+    
     //Disciplina***********************************************************************
     public Integer AdicionaDisciplina (String nome){
         
@@ -102,7 +116,8 @@ public class Escola {
         disciplina.setIdDisciplina(codigo_disciplina);
         codigo_disciplina += 1;
         
-        this.lista_disciplinas.put(disciplina.IdDaDisciplina(), disciplina);
+        //this.lista_disciplinas.put(disciplina.IdDaDisciplina(), disciplina);
+        this.lista_disciplinas.add(disciplina);
         
         return disciplina.IdDaDisciplina();
     }
@@ -138,7 +153,23 @@ public class Escola {
         return this.lista_disciplinas.get(disciplina).NumeroAlunos();
     }
     
-   
+    public void RemoveDisciplina (Integer IdDisciplina){
+        int disciplina = ProcuraDisciplina(IdDisciplina);
+        
+        this.lista_disciplinas.remove(disciplina);
+    }
+    
+    public Integer QtdDisciplinas(){
+        return this.lista_disciplinas.size();
+    }
+    
+    public String NomeDisciplina(Integer index){
+        return this.lista_disciplinas.get(index).NomeDisciplina();
+    }
+    
+    public Integer getIdDisciplina(Integer index){
+        return this.lista_disciplinas.get(index).IdDaDisciplina();
+    }
     
     private int ProcuraDisciplina(Integer ID){   
         
@@ -208,13 +239,15 @@ public class Escola {
     };
     
     
-    public void RemoveAlunoDoCurso (String NomeDoAluno, String NomeDoCurso){
-        
+    public void RemoveAlunoDoCurso (Integer IdAluno, String NomeDoCurso){
+        int curso = ProcuraCurso(NomeDoCurso);
+        this.lista_cursos.get(curso).RemoveAluno(IdAluno);
     }
     
     
-    public void RemoverAlunoDaDisciplina (String NomeDoAluno, String NomeDaDisciplina){
-        
+    public void RemoverAlunoDaDisciplina (Integer IdAluno, Integer IdDisciplina){
+        int disciplina = ProcuraDisciplina(IdDisciplina);
+        this.lista_disciplinas.get(disciplina).RemoveAluno(IdAluno);
     }
     
     public void AlunoFormado(){
