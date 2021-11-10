@@ -52,5 +52,13 @@ public class Curso {
         int posicao = ProcuraAluno(aluno);
         this.lista_alunos_no_curso.remove(posicao);
     }
+    
+    public void RemoveDisciplina(Integer IdDisciplina){
+        for (int i = 0; i < lista_disciplina_no_curso.size(); i++){
+            if (this.lista_disciplina_no_curso.get(i).IdDaDisciplina().equals(IdDisciplina)){
+                this.lista_disciplina_no_curso.remove(i);
+            }
+        }
+    }
         
 }

@@ -101,6 +101,11 @@ public class Escola {
         this.lista_cursos.remove(curso);
     }
     
+    public void RemoveDisciplinaDoCurso(String NomeDoCurso, Integer IdDisciplina){
+        int curso = ProcuraCurso(NomeDoCurso);
+        this.lista_cursos.get(curso).RemoveDisciplina(IdDisciplina);
+    }
+    
     public String NomeCurso(Integer index){
         return lista_cursos.get(index).NomeCurso();
     }

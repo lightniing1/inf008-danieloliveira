@@ -242,9 +242,12 @@ public class GUI extends javax.swing.JFrame {
 
         jLabel4.setText("Remover disciplina");
 
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
         jButton4.setText("Remover");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
@@ -1229,12 +1232,15 @@ public class GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-
+        
         String[] disciplina = jComboBox2.getSelectedItem().toString().split(" ", 2);
         Integer id_disciplina = Integer.parseInt(disciplina[0]);
+        
+        jComboBox3.addItem(jComboBox2.getSelectedItem().toString());
+        jComboBox2.removeItemAt(jComboBox2.getSelectedIndex());
+        
         escola.AdicionaDisciplinaAoCurso(jComboBox4.getSelectedItem().toString(), id_disciplina);
-
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -1280,6 +1286,17 @@ public class GUI extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_jButton8ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+        String[] disciplina = jComboBox3.getSelectedItem().toString().split(" ", 2);
+        Integer id_disciplina = Integer.parseInt(disciplina[0]);
+        
+        jComboBox2.addItem(jComboBox3.getSelectedItem().toString());
+        jComboBox3.removeItemAt(jComboBox3.getSelectedIndex());
+        
+        escola.RemoveDisciplinaDoCurso(jComboBox4.getSelectedItem().toString(), id_disciplina);
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments
