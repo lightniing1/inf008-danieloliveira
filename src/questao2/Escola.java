@@ -78,7 +78,8 @@ public class Escola {
         } else if (aluno == -1){
             System.out.println("Aluno nao encontrado");
         } else {
-           this.lista_cursos.get(curso).AdicionaAluno(this.lista_alunos.get(aluno)); 
+           this.lista_cursos.get(curso).AdicionaAluno(this.lista_alunos.get(aluno));
+           this.lista_alunos.get(aluno).setCurso(NomeDoCurso);
         }
         
     }
@@ -112,6 +113,11 @@ public class Escola {
     
     public Integer QtdCursos (){
         return lista_cursos.size();
+    }
+    
+    public String getCursoAluno(Integer matricula){
+        int aluno = ProcuraAluno(matricula);
+        return this.lista_alunos.get(aluno).getCurso();
     }
     
     //Disciplina***********************************************************************
@@ -290,7 +296,12 @@ public class Escola {
         return this.lista_alunos.get(index).VerificaMatriculaDisciplina(IdDisciplina);
     }
     
-    
+    public Float NotaAluno(Integer matricula, Integer IdDisciplina){
+        int aluno = ProcuraAluno(matricula);
+        //int disciplina = ProcuraDisciplina(IdDisciplina);
+        
+        return this.lista_alunos.get(aluno).getNotaDisciplina(IdDisciplina);
+    }
     
     private int ProcuraAluno(Integer ID){   
         int posicao = -1;

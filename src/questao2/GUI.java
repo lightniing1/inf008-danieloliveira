@@ -141,6 +141,7 @@ public class GUI extends javax.swing.JFrame {
         jLabel40 = new javax.swing.JLabel();
         jComboBox24 = new javax.swing.JComboBox<>();
         jComboBox25 = new javax.swing.JComboBox<>();
+        jLabel44 = new javax.swing.JLabel();
         jComboBox16 = new javax.swing.JComboBox<>();
         jLabel28 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
@@ -383,6 +384,12 @@ public class GUI extends javax.swing.JFrame {
                     .addComponent(jLabel43))
                 .addContainerGap(55, Short.MAX_VALUE))
         );
+
+        jComboBox4.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jComboBox4ItemStateChanged(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
         jPanel12.setLayout(jPanel12Layout);
@@ -1044,7 +1051,11 @@ public class GUI extends javax.swing.JFrame {
 
         jLabel27.setText("Lista de disciplinas matriculadas");
 
-        jComboBox17.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox17.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jComboBox17FocusGained(evt);
+            }
+        });
 
         jLabel29.setText("# :");
 
@@ -1062,6 +1073,8 @@ public class GUI extends javax.swing.JFrame {
 
         jComboBox25.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
+        jLabel44.setText("jLabel44");
+
         javax.swing.GroupLayout jPanel21Layout = new javax.swing.GroupLayout(jPanel21);
         jPanel21.setLayout(jPanel21Layout);
         jPanel21Layout.setHorizontalGroup(
@@ -1069,7 +1082,10 @@ public class GUI extends javax.swing.JFrame {
             .addGroup(jPanel21Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel25)
+                    .addGroup(jPanel21Layout.createSequentialGroup()
+                        .addComponent(jLabel25)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel44))
                     .addComponent(jLabel26)
                     .addGroup(jPanel21Layout.createSequentialGroup()
                         .addComponent(jLabel27)
@@ -1097,7 +1113,9 @@ public class GUI extends javax.swing.JFrame {
             jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel21Layout.createSequentialGroup()
                 .addGap(31, 31, 31)
-                .addComponent(jLabel25)
+                .addGroup(jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel25)
+                    .addComponent(jLabel44))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel26)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1120,6 +1138,12 @@ public class GUI extends javax.swing.JFrame {
                     .addComponent(jComboBox25, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(102, Short.MAX_VALUE))
         );
+
+        jComboBox16.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jComboBox16FocusGained(evt);
+            }
+        });
 
         jLabel28.setText("Nome do aluno");
 
@@ -1157,7 +1181,7 @@ public class GUI extends javax.swing.JFrame {
                 .addComponent(jPanel20, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jPanel21, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(47, Short.MAX_VALUE))
+                .addContainerGap(45, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Aluno", jPanel4);
@@ -1186,7 +1210,7 @@ public class GUI extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1)
+            .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 731, Short.MAX_VALUE)
         );
 
         jTabbedPane1.getAccessibleContext().setAccessibleName("Curso");
@@ -1215,15 +1239,13 @@ public class GUI extends javax.swing.JFrame {
         // Incrementa contador na aba Curso > Informacao > Alunos matriculados
         String curso = jComboBox13.getSelectedItem().toString();
 
-        Integer n_alunos = escola.NumeroAlunosNoCurso(curso);
-
         String[] aluno = jComboBox16.getSelectedItem().toString().split(" ", 2);
         Integer id_aluno = Integer.parseInt(aluno[0]);
 
-        jLabel42.setText(n_alunos.toString());
-
         //Cadastra aluno no curso
         escola.AdicionaAlunoAoCurso(curso, id_aluno);
+        
+        
 
     }//GEN-LAST:event_jButton17ActionPerformed
 
@@ -1435,6 +1457,41 @@ public class GUI extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jButton20ActionPerformed
 
+    private void jComboBox4ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBox4ItemStateChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox4ItemStateChanged
+
+    private void jComboBox16FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jComboBox16FocusGained
+        // TODO add your handling code here:
+        
+        String[] aluno = jComboBox16.getSelectedItem().toString().split(" ", 2);
+        Integer idd_aluno = Integer.parseInt(aluno[0]);
+        
+        //Nome do Curso
+        jLabel44.setText(escola.getCursoAluno(idd_aluno));
+        //System.out.println("Curso: " + escola.getCursoAluno(idd_aluno));
+        
+        //Disciplinas matriculadas
+        for (int i = 0; i < escola.QtdDisciplinas(); i++){
+            if (escola.VerificaAlunoNaDisciplina(i, idd_aluno)){
+                jComboBox17.addItem(escola.getIdDisciplina(i)+ " " + escola.NomeDisciplina(i));
+            }
+        }
+        
+    }//GEN-LAST:event_jComboBox16FocusGained
+
+    private void jComboBox17FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jComboBox17FocusGained
+        // TODO add your handling code here:
+        String[] aluno = jComboBox16.getSelectedItem().toString().split(" ", 2);
+        Integer idd_aluno = Integer.parseInt(aluno[0]);
+        
+        String[] disciplina = jComboBox17.getSelectedItem().toString().split(" ", 2);
+        Integer idd_disciplina = Integer.parseInt(disciplina[0]);
+        
+        String nota = String.valueOf(escola.NotaAluno(idd_aluno, idd_disciplina));
+        jLabel32.setText(nota);
+    }//GEN-LAST:event_jComboBox17FocusGained
+
     /**
      * @param args the command line arguments
      */
@@ -1554,6 +1611,7 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel42;
     private javax.swing.JLabel jLabel43;
+    private javax.swing.JLabel jLabel44;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;

@@ -40,6 +40,11 @@ public class Aluno extends Pessoa {
         this.Disciplinas.put(IdDisciplina, nota);
     }
     
+    public Float getNotaDisciplina (Integer IdDisciplina){
+        
+        return this.Disciplinas.get(IdDisciplina);
+    }
+    
     public void AdicionarHorario(String horario){
         this.lista_horarios.add(horario);
     }
