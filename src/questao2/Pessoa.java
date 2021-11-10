@@ -13,6 +13,8 @@ public abstract class Pessoa {
     }
     
     abstract void AdicionarHorario(String horario);
+    abstract void setMatricula(Integer matricula);
+    abstract Integer getMatricula();
 
 }
 

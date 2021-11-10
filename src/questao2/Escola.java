@@ -4,6 +4,7 @@
  */
 package questao2;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  *
@@ -18,9 +19,14 @@ public class Escola {
     */
     
     private ArrayList<Curso> lista_cursos = new ArrayList<Curso>();
-    private ArrayList<Disciplina> lista_disciplinas = new ArrayList<Disciplina>();
+    //private ArrayList<Disciplina> lista_disciplinas = new ArrayList<Disciplina>();
+    private HashMap<Integer, Disciplina> lista_disciplinas = new HashMap<Integer, Disciplina>();
     private ArrayList<Discente> lista_professores = new ArrayList<Discente>();
     private ArrayList<Aluno> lista_alunos = new ArrayList<Aluno>();
+    
+    int codigo_disciplina = 0;
+    int codigo_discente = 0;
+    int codigo_aluno = 0;
     
     //Curso
     public void AdicionaCurso(String nome){
@@ -45,10 +51,10 @@ public class Escola {
         return posicao;
     }
     
-    public void AdicionaDisciplinaAoCurso (String NomeDoCurso, String NomeDaDisciplina){
+    public void AdicionaDisciplinaAoCurso (String NomeDoCurso, Integer IdDaDisciplina){
         
         int curso = ProcuraCurso(NomeDoCurso);
-        int disciplina = ProcuraDisciplina(NomeDaDisciplina);
+        int disciplina = ProcuraDisciplina(IdDaDisciplina);
         
         System.out.println(curso);
         
@@ -62,10 +68,10 @@ public class Escola {
         }
     }
     
-    public void AdicionaAlunoAoCurso (String NomeDoCurso, String NomeDoAluno){
+    public void AdicionaAlunoAoCurso (String NomeDoCurso, Integer IdAluno){
         
         int curso = ProcuraCurso(NomeDoCurso);
-        int aluno = ProcuraAluno(NomeDoAluno);
+        int aluno = ProcuraAluno(IdAluno);
         
         if(curso == -1){
             System.out.println("Curso nao encontrado");
@@ -90,64 +96,80 @@ public class Escola {
     }
     
     //Disciplina***********************************************************************
-    public void AdicionaDisciplina (String nome){
+    public Integer AdicionaDisciplina (String nome){
         
         Disciplina disciplina = new Disciplina(nome);
-        this.lista_disciplinas.add(disciplina);
+        disciplina.setIdDisciplina(codigo_disciplina);
+        codigo_disciplina += 1;
+        
+        this.lista_disciplinas.put(disciplina.IdDaDisciplina(), disciplina);
+        
+        return disciplina.IdDaDisciplina();
     }
     
-    public void AdicionaProfessorADisciplina (String NomeDaDisciplina, String NomeDoProfessor){
+    public void AdicionaProfessorADisciplina (Integer IdDisciplina, Integer IdProfessor){
         
-        int disciplina = ProcuraDisciplina(NomeDaDisciplina);
-        int professor = ProcuraProfessor(NomeDoProfessor);
+        int disciplina = ProcuraDisciplina(IdDisciplina);
+        int professor = ProcuraProfessor(IdProfessor);
         
         this.lista_disciplinas.get(disciplina).setDicenteDisciplina(this.lista_professores.get(professor));
         
     }
     
-    public void AdicionaAlunoADisciplina (String NomeDoAluno, String NomeDaDisciplina){
-        int disciplina = ProcuraDisciplina(NomeDaDisciplina);
-        int aluno = ProcuraAluno(NomeDoAluno);
+    public void AdicionaAlunoADisciplina (Integer IdAluno, Integer IdDisciplina){
+        int disciplina = ProcuraDisciplina(IdDisciplina);
+        int aluno = ProcuraAluno(IdAluno);
         
-        this.lista_disciplinas.get(disciplina).AdicionaAluno(this.lista_alunos.get(aluno));
+        //this.lista_disciplinas.get(disciplina).AdicionaAluno(this.lista_alunos.get(aluno));
+        
+        this.lista_alunos.get(aluno).AdicionaDisciplina(disciplina);
+
     }
     
-    public void AdicionaHorarioADisciplina (String NomeDaDisciplina, String horario){
-        int disciplina = ProcuraDisciplina(NomeDaDisciplina);
+    public void AdicionaHorarioADisciplina (Integer IdDisciplina, String horario){
+        int disciplina = ProcuraDisciplina(IdDisciplina);
         
         this.lista_disciplinas.get(disciplina).AdicionaHorario(horario);
     }
     
-    public int ListaAlunosDaDisciplina (String NomeDaDisciplina){
-        int disciplina = ProcuraDisciplina(NomeDaDisciplina);
+    public int ListaAlunosDaDisciplina (Integer IdDisciplina){
+        int disciplina = ProcuraDisciplina(IdDisciplina);
         
         return this.lista_disciplinas.get(disciplina).NumeroAlunos();
     }
     
-    private int ProcuraDisciplina(String nome){   
+   
+    
+    private int ProcuraDisciplina(Integer ID){   
         
         int posicao = -1;
         
         for (int i = 0; i < lista_disciplinas.size(); i++){
-            if (lista_disciplinas.get(i).NomeDisciplina().equals(nome)){
+            if (lista_disciplinas.get(i).IdDaDisciplina().equals(ID)){
                 posicao = i;
             }
         }    
         return posicao;
     }
     
+    
     //Professor***********************************************************************
-    public void AdicionaProfessor (String nome){
+    public int AdicionaProfessor (String nome){
         Discente discente = new Discente(nome);
+        
+        discente.setMatricula(codigo_discente);
+        codigo_discente += 1;
         lista_professores.add(discente);
+        
+        return discente.getMatricula();
     }
     
-    private int ProcuraProfessor(String nome){   
+    private int ProcuraProfessor(Integer ID){   
         
         int posicao = -1;
         
         for (int i = 0; i < lista_professores.size(); i++){
-            if (lista_professores.get(i).Nome().equals(nome)){
+            if (lista_professores.get(i).getMatricula().equals(ID)){
                 posicao = i;
             }
         }    
@@ -155,28 +177,33 @@ public class Escola {
     }
     
     //Aluno***********************************************************************
-    public void AdicionaAluno (String nome){
+    public Integer AdicionaAluno (String nome){
         Aluno aluno = new Aluno(nome);
+        aluno.setMatricula(codigo_aluno);
+        codigo_aluno += 1;
+        
         lista_alunos.add(aluno);
+        
+        return aluno.getMatricula();
     }
     
-    private int ProcuraAluno(String nome){   
+    private int ProcuraAluno(Integer ID){   
         int posicao = -1;
         
         for (int i = 0; i < lista_alunos.size(); i++){
-            if (lista_alunos.get(i).Nome().equals(nome)){
+            if (lista_alunos.get(i).getMatricula().equals(ID)){
                 posicao = i;
             }
         }    
         return posicao;
     }
     
-    public void AdicionaNotaAoAlunoNaDisciplina (String NomeDoAluno, String NomeDaDisciplina, float nota){
+    public void AdicionaNotaAoAlunoNaDisciplina (Integer IdAluno, Integer IdDisciplina, float nota){
         
         //int disciplina = this.lista_disciplinas.indexOf(NomeDaDisciplina);
-        int aluno = ProcuraAluno(NomeDoAluno);
+        int aluno = ProcuraAluno(IdAluno);
         
-        this.lista_alunos.get(aluno).AdicionaNotaAluno(NomeDaDisciplina, nota);
+        this.lista_alunos.get(aluno).AdicionaNotaAluno(IdDisciplina, nota);
         
     };
     
