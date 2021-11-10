@@ -158,12 +158,6 @@ public class Escola {
         this.lista_disciplinas.get(disciplina).RemoveHorario(horario);
     }
     
-    public int ListaAlunosDaDisciplina (Integer IdDisciplina){
-        int disciplina = ProcuraDisciplina(IdDisciplina);
-        
-        return this.lista_disciplinas.get(disciplina).NumeroAlunos();
-    }
-    
     public void RemoveDisciplina (Integer IdDisciplina){
         int disciplina = ProcuraDisciplina(IdDisciplina);
         
@@ -173,6 +167,12 @@ public class Escola {
     public Integer QtdDisciplinas(){
         return this.lista_disciplinas.size();
     }
+    
+    public Integer QtdAlunosNaDisciplina(Integer IdDisciplina){
+        int disciplina = ProcuraDisciplina(IdDisciplina);
+        return this.lista_disciplinas.get(disciplina).NumeroAlunos();
+    }
+    
     
     public String NomeDisciplina(Integer index){
         return this.lista_disciplinas.get(index).NomeDisciplina();
@@ -240,12 +240,6 @@ public class Escola {
         
     }
     
-    //public Integer DisciplinasLecionadas(Integer matricula){
-        
-    //    this.lista_disciplinas.add(i).
-    //    return lista_professores.get(matricula).
-    //}
-    
     private int ProcuraProfessor(Integer ID){   
         
         int posicao = -1;
@@ -288,6 +282,15 @@ public class Escola {
     public Integer QtdAlunos (){
         return lista_alunos.size();
     }
+    
+    public Boolean VerificaAlunoNaDisciplina(Integer index, Integer IdDisciplina){
+        //int aluno = ProcuraAluno(matricula);
+        //int disciplina = ProcuraDisciplina(IdDisciplina);
+        
+        return this.lista_alunos.get(index).VerificaMatriculaDisciplina(IdDisciplina);
+    }
+    
+    
     
     private int ProcuraAluno(Integer ID){   
         int posicao = -1;

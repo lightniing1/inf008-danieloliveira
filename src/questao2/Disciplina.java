@@ -81,7 +81,6 @@ public class Disciplina {
         }   
     }
     
-    
     public int NumeroAlunos(){
         return this.lista_alunos_na_disciplina.size();
     }

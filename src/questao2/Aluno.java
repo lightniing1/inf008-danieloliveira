@@ -44,4 +44,12 @@ public class Aluno extends Pessoa {
         this.lista_horarios.add(horario);
     }
     
+    public Integer QtdDisciplinas(){
+        return this.Disciplinas.size();
+    }
+    
+    public Boolean VerificaMatriculaDisciplina(Integer IdDisciplina){
+        return this.Disciplinas.containsKey(IdDisciplina);
+    }
+    
 }
