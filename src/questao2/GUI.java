@@ -533,9 +533,12 @@ public class GUI extends javax.swing.JFrame {
 
         jLabel12.setText("Nome do discente");
 
-        jComboBox8.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
         jButton10.setText("Remover");
+        jButton10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton10ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel14Layout = new javax.swing.GroupLayout(jPanel14);
         jPanel14.setLayout(jPanel14Layout);
@@ -578,13 +581,23 @@ public class GUI extends javax.swing.JFrame {
 
         jLabel13.setText("Adicionar horario");
 
-        jComboBox10.setModel(jComboBox9.getModel());
+        jComboBox10.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "00:00", "01:00", "02:00", "03:00", "04:00", "05:00", "06:00", "07:00", "08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00", "23:00" }));
 
         jButton11.setText("Adicionar");
+        jButton11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton11ActionPerformed(evt);
+            }
+        });
 
         jButton12.setText("Remover");
+        jButton12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton12ActionPerformed(evt);
+            }
+        });
 
-        jComboBox23.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox23.setToolTipText("");
 
         javax.swing.GroupLayout jPanel15Layout = new javax.swing.GroupLayout(jPanel15);
         jPanel15.setLayout(jPanel15Layout);
@@ -595,8 +608,8 @@ public class GUI extends javax.swing.JFrame {
                 .addComponent(jLabel13)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jComboBox23, 0, 258, Short.MAX_VALUE)
-                    .addComponent(jComboBox10, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jComboBox23, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jComboBox10, 0, 258, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton11)
@@ -710,9 +723,14 @@ public class GUI extends javax.swing.JFrame {
 
         jLabel19.setText("Nome do discente");
 
-        jComboBox11.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox11.setModel(jComboBox18.getModel());
 
         jButton14.setText("Remover");
+        jButton14.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton14ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel17Layout = new javax.swing.GroupLayout(jPanel17);
         jPanel17.setLayout(jPanel17Layout);
@@ -757,11 +775,13 @@ public class GUI extends javax.swing.JFrame {
 
         jLabel35.setText("Selecionar disciplina lecionada");
 
-        jComboBox19.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox19.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jComboBox19FocusGained(evt);
+            }
+        });
 
         jLabel36.setText("Selecionar aluno da disciplina");
-
-        jComboBox20.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jLabel37.setText("Nota do aluno na disciplina");
 
@@ -849,7 +869,7 @@ public class GUI extends javax.swing.JFrame {
                 .addComponent(jPanel17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel22, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(285, Short.MAX_VALUE))
+                .addContainerGap(281, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Discente", jPanel3);
@@ -870,9 +890,14 @@ public class GUI extends javax.swing.JFrame {
 
         jLabel21.setText("Nome do aluno");
 
-        jComboBox12.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox12.setModel(jComboBox16.getModel());
 
         jButton16.setText("Remover");
+        jButton16.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton16ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel18Layout = new javax.swing.GroupLayout(jPanel18);
         jPanel18.setLayout(jPanel18Layout);
@@ -975,8 +1000,6 @@ public class GUI extends javax.swing.JFrame {
         jPanel20.setBorder(javax.swing.BorderFactory.createTitledBorder("Disciplina"));
 
         jLabel24.setText("Nome da disciplina");
-
-        jComboBox15.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jButton19.setText("Terminar disciplina");
 
@@ -1192,7 +1215,6 @@ public class GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton17ActionPerformed
 
     private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
-        // TODO add your handling code here:
 
         int id_aluno = escola.AdicionaAluno(jTextField4.getText());
         jComboBox16.addItem(id_aluno + " " + jTextField4.getText());
@@ -1270,8 +1292,7 @@ public class GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        // TODO add your handling code here:
-        
+  
         String[] disciplina = jComboBox5.getSelectedItem().toString().split(" ", 2);
         Integer idd_disciplina = Integer.parseInt(disciplina[0]);
         
@@ -1297,6 +1318,80 @@ public class GUI extends javax.swing.JFrame {
         
         escola.RemoveDisciplinaDoCurso(jComboBox4.getSelectedItem().toString(), id_disciplina);
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
+        // TODO add your handling code here:
+  
+        String[] disciplina = jComboBox6.getSelectedItem().toString().split(" ", 2);
+        Integer id_disciplina = Integer.parseInt(disciplina[0]);
+        
+        escola.AdicionaHorarioADisciplina(id_disciplina, jComboBox10.getSelectedItem().toString());
+        
+        jComboBox23.addItem(jComboBox10.getSelectedItem().toString());
+        jComboBox10.removeItemAt(jComboBox10.getSelectedIndex());
+    }//GEN-LAST:event_jButton11ActionPerformed
+
+    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
+        // TODO add your handling code here:
+        String[] disciplina = jComboBox6.getSelectedItem().toString().split(" ", 2);
+        Integer id_disciplina = Integer.parseInt(disciplina[0]);
+        
+        escola.RemoveHorarioDisciplina(id_disciplina, jComboBox23.getSelectedItem().toString());
+        
+        jComboBox10.addItem(jComboBox23.getSelectedItem().toString());
+        jComboBox23.removeItemAt(jComboBox23.getSelectedIndex());
+    }//GEN-LAST:event_jButton12ActionPerformed
+
+    private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
+        // TODO add your handling code here:
+        String[] professor = jComboBox11.getSelectedItem().toString().split(" ", 2);
+        Integer idd_professor = Integer.parseInt(professor[0]);
+        
+        escola.RemoveProfessor(idd_professor);
+        
+        jComboBox18.removeAllItems();
+        
+        for (int i = 0; i < escola.QtdProfessores(); i++){
+            String nome_professor = escola.NomeProfessor(i);
+            Integer id_professor = escola.MatriculaProfessor(i);
+            jComboBox18.addItem(id_professor + " " + nome_professor);
+        }
+        
+    }//GEN-LAST:event_jButton14ActionPerformed
+
+    private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
+        // TODO add your handling code here:
+        String[] aluno = jComboBox12.getSelectedItem().toString().split(" ", 2);
+        Integer idd_aluno = Integer.parseInt(aluno[0]);
+        
+        escola.RemoveProfessor(idd_aluno);
+        
+        jComboBox16.removeAllItems();
+        
+        for (int i = 0; i < escola.QtdAlunos(); i++){
+            String nome_aluno = escola.NomeAluno(i);
+            Integer id_aluno = escola.MatriculaAluno(i);
+            jComboBox16.addItem(id_aluno + " " + nome_aluno);
+        }
+    }//GEN-LAST:event_jButton16ActionPerformed
+
+    private void jComboBox19FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jComboBox19FocusGained
+        // TODO add your handling code here:
+        String[] professor = jComboBox18.getSelectedItem().toString().split(" ", 2);
+        Integer idd_professor = Integer.parseInt(professor[0]);
+        
+        for (int i = 0; i < escola.QtdDisciplinas(); i++){
+            if (escola.DiscenteDaDiciplina(i).equals(idd_professor)){
+                String nome_disciplina = escola.NomeDisciplina(i);
+                Integer id_disciplina = escola.getIdDisciplina(i);
+                jComboBox19.addItem(id_disciplina + " " + nome_disciplina);
+            }
+        }
+    }//GEN-LAST:event_jComboBox19FocusGained
+
+    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton10ActionPerformed
 
     /**
      * @param args the command line arguments

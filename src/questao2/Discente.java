@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Discente extends Pessoa {
     
     private ArrayList<String> lista_horarios = new ArrayList<String>();
-    Integer matricula;
+    private Integer matricula;
 	
     Discente (String nome){
 	super(nome);

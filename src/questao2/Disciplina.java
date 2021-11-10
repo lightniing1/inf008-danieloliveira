@@ -53,6 +53,14 @@ public class Disciplina {
         this.discente = discente;
     }
     
+    public String getNomeDiscenteDisciplina(){
+        return this.discente.Nome();
+    }
+    
+    public Integer getMatriculaDiscenteDisciplina(){
+        return this.discente.getMatricula();
+    }
+    
     public void setIdDisciplina (int id){
         this.id_disciplina = id;
     }
@@ -64,6 +72,15 @@ public class Disciplina {
     public void AdicionaHorario (String horario){
         this.lista_horarios_disciplina.add(horario);
     }
+    
+    public void RemoveHorario (String horario){
+        for(int i = 0; i < this.lista_horarios_disciplina.size(); i++){
+            if (this.lista_horarios_disciplina.get(i).equals(horario)){
+                this.lista_horarios_disciplina.remove(i);
+            }
+        }   
+    }
+    
     
     public int NumeroAlunos(){
         return this.lista_alunos_na_disciplina.size();

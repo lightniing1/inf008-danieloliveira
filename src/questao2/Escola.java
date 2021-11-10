@@ -152,6 +152,12 @@ public class Escola {
         this.lista_disciplinas.get(disciplina).AdicionaHorario(horario);
     }
     
+    public void RemoveHorarioDisciplina (Integer IdDisciplina, String horario){
+        int disciplina = ProcuraDisciplina(IdDisciplina);
+        
+        this.lista_disciplinas.get(disciplina).RemoveHorario(horario);
+    }
+    
     public int ListaAlunosDaDisciplina (Integer IdDisciplina){
         int disciplina = ProcuraDisciplina(IdDisciplina);
         
@@ -176,6 +182,11 @@ public class Escola {
         return this.lista_disciplinas.get(index).IdDaDisciplina();
     }
     
+    public Integer DiscenteDaDiciplina (Integer index){
+        
+        return this.lista_disciplinas.get(index).getMatriculaDiscenteDisciplina();
+    }
+    
     private int ProcuraDisciplina(Integer ID){   
         
         int posicao = -1;
@@ -187,9 +198,11 @@ public class Escola {
         }    
         return posicao;
     }
+ 
     
     
     //Professor***********************************************************************
+    
     public int AdicionaProfessor (String nome){
         Discente discente = new Discente(nome);
         
@@ -199,6 +212,39 @@ public class Escola {
         
         return discente.getMatricula();
     }
+    
+    public String NomeProfessor(Integer index){
+        
+        return lista_professores.get(index).Nome();
+    }
+    
+    public Integer MatriculaProfessor(Integer index){
+        return lista_professores.get(index).getMatricula();
+    }
+    
+    public void RemoveProfessor(Integer matricula){
+        int professor = ProcuraProfessor(matricula);
+        
+        this.lista_professores.remove(professor);
+    }
+    
+    public Integer QtdProfessores (){
+        return lista_professores.size();
+    }
+    
+    public void AdicionaHorarioProfessor(String horario){
+        
+    }
+    
+    public void RemoveHorarioProfessor(String horario){
+        
+    }
+    
+    //public Integer DisciplinasLecionadas(Integer matricula){
+        
+    //    this.lista_disciplinas.add(i).
+    //    return lista_professores.get(matricula).
+    //}
     
     private int ProcuraProfessor(Integer ID){   
         
@@ -213,6 +259,7 @@ public class Escola {
     }
     
     //Aluno***********************************************************************
+    
     public Integer AdicionaAluno (String nome){
         Aluno aluno = new Aluno(nome);
         aluno.setMatricula(codigo_aluno);
@@ -221,6 +268,25 @@ public class Escola {
         lista_alunos.add(aluno);
         
         return aluno.getMatricula();
+    }
+    
+    public String NomeAluno(Integer index){
+        
+        return lista_alunos.get(index).Nome();
+    }
+    
+    public Integer MatriculaAluno(Integer index){
+        return lista_alunos.get(index).getMatricula();
+    }
+    
+    public void RemoveAluno(Integer matricula){
+        int aluno = ProcuraAluno(matricula);
+        
+        this.lista_alunos.remove(aluno);
+    }
+    
+    public Integer QtdAlunos (){
+        return lista_alunos.size();
     }
     
     private int ProcuraAluno(Integer ID){   
