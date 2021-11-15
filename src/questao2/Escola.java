@@ -96,6 +96,11 @@ public class Escola {
         return this.lista_cursos.get(curso).NumeroAlunos();
     }
     
+    public int NumeroDisciplinasNoCurso (String NomeDoCurso){
+        int curso = ProcuraCurso(NomeDoCurso);
+        return this.lista_cursos.get(curso).NumeroDisciplinas();
+    }
+    
     public void RemoveCurso (String NomeDoCurso){
         int curso = ProcuraCurso(NomeDoCurso);
         
@@ -186,6 +191,10 @@ public class Escola {
     
     public Integer getIdDisciplina(Integer index){
         return this.lista_disciplinas.get(index).IdDaDisciplina();
+    }
+    
+    public String SiglaDisciplina(Integer index){
+        return this.lista_disciplinas.get(index).getSiglaDisciplina();
     }
     
     public Integer DiscenteDaDiciplina (Integer index){

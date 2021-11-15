@@ -16,6 +16,7 @@ public class Disciplina {
     public Disciplina (String nome_disciplina) {
             this.nome_disciplina = nome_disciplina;
             this.sigla_disciplina = nome_disciplina.toUpperCase().substring(0, 2);
+            this.id_disciplina = 0;
     }
     
     public String NomeDisciplina(){
@@ -59,6 +60,10 @@ public class Disciplina {
     
     public Integer getMatriculaDiscenteDisciplina(){
         return this.discente.getMatricula();
+    }
+    
+    public String getSiglaDisciplina(){
+        return this.sigla_disciplina;
     }
     
     public void setIdDisciplina (int id){

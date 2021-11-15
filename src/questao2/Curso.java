@@ -37,6 +37,10 @@ public class Curso {
         return this.lista_alunos_no_curso.size();
     }
     
+    public int NumeroDisciplinas(){
+        return this.lista_disciplina_no_curso.size();
+    }
+    
     private int ProcuraAluno(Integer ID){
         int posicao = -1;
         
