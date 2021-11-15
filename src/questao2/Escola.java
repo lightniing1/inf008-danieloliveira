@@ -202,6 +202,13 @@ public class Escola {
         return this.lista_disciplinas.get(index).getMatriculaDiscenteDisciplina();
     }
     
+    public String NomeDiscenteDaDisciplina (int IdDisciplina){
+        int disciplina = ProcuraDisciplina(IdDisciplina);
+        String nome = this.lista_disciplinas.get(disciplina).getNomeDiscenteDisciplina();
+        
+        return nome;
+    }
+    
     private int ProcuraDisciplina(Integer ID){   
         
         int posicao = -1;

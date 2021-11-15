@@ -397,6 +397,11 @@ public class GUI extends javax.swing.JFrame {
                 jComboBox4ItemStateChanged(evt);
             }
         });
+        jComboBox4.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jComboBox4FocusGained(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
         jPanel12.setLayout(jPanel12Layout);
@@ -518,6 +523,11 @@ public class GUI extends javax.swing.JFrame {
         jComboBox6.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 jComboBox6FocusGained(evt);
+            }
+        });
+        jComboBox6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox6ActionPerformed(evt);
             }
         });
 
@@ -692,35 +702,34 @@ public class GUI extends javax.swing.JFrame {
                 .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel16Layout.createSequentialGroup()
                         .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel16Layout.createSequentialGroup()
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel16Layout.createSequentialGroup()
                                 .addComponent(jLabel15)
-                                .addGap(23, 23, 23)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel47))
-                            .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(jPanel16Layout.createSequentialGroup()
-                                    .addComponent(jLabel14)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(jLabel45))
-                                .addGroup(jPanel16Layout.createSequentialGroup()
-                                    .addComponent(jLabel16)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(jLabel46))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 235, Short.MAX_VALUE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel16Layout.createSequentialGroup()
+                                .addComponent(jLabel14)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel45))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel16Layout.createSequentialGroup()
+                                .addComponent(jLabel16)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel46)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel17)
                             .addComponent(jComboBox22, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel16Layout.createSequentialGroup()
-                        .addComponent(jLabel48)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel49)
+                        .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel16Layout.createSequentialGroup()
+                                .addComponent(jLabel48)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel49))
+                            .addGroup(jPanel16Layout.createSequentialGroup()
+                                .addComponent(jLabel50)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel51)))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addGroup(jPanel16Layout.createSequentialGroup()
-                .addGap(8, 8, 8)
-                .addComponent(jLabel50)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel51)
-                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel16Layout.setVerticalGroup(
             jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -740,15 +749,15 @@ public class GUI extends javax.swing.JFrame {
                 .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel15)
                     .addComponent(jLabel47))
-                .addGap(16, 16, 16)
-                .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel48)
-                    .addComponent(jLabel49))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel49)
+                    .addComponent(jLabel48))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel50)
-                    .addComponent(jLabel51))
-                .addContainerGap(68, Short.MAX_VALUE))
+                .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel51)
+                    .addComponent(jLabel50))
+                .addContainerGap(78, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -1541,11 +1550,7 @@ public class GUI extends javax.swing.JFrame {
     private void jComboBox4ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBox4ItemStateChanged
         // TODO add your handling code here:
         ///42 = aluno, 43 disciplina
-        Integer numero_aluno = escola.NumeroAlunosNoCurso(jComboBox4.getSelectedItem().toString());
-        Integer numero_disciplinas = escola.NumeroDisciplinasNoCurso(jComboBox4.getSelectedItem().toString());
         
-        jLabel42.setText(numero_aluno.toString());
-        jLabel43.setText(numero_disciplinas.toString());
     }//GEN-LAST:event_jComboBox4ItemStateChanged
 
     private void jComboBox16FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jComboBox16FocusGained
@@ -1578,8 +1583,8 @@ public class GUI extends javax.swing.JFrame {
     private void jComboBox6FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jComboBox6FocusGained
         // TODO add your handling code here:
         jComboBox22.removeAllItems();
-        //String[] professor = jComboBox18.getSelectedItem().toString().split(" ", 2);
-        //Integer idd_professor = Integer.parseInt(professor[0]);
+        
+        //Ajeitar esse código depois. Algumas coisas redundantes.
         String[] disciplina = jComboBox6.getSelectedItem().toString().split(" ", 2);
         Integer idd_disciplina = Integer.parseInt(disciplina[0]);
         
@@ -1593,16 +1598,21 @@ public class GUI extends javax.swing.JFrame {
             if (escola.getIdDisciplina(i).equals(idd_disciplina)){
                 
                 nome_disciplina = escola.NomeDisciplina(i);
-                nome_professor = escola.NomeProfessor(i);
                 sigla_disciplina = escola.SiglaDisciplina(i);
                 id_disciplina = escola.getIdDisciplina(i).toString();
                 numero_alunos = escola.QtdAlunosNaDisciplina(i);
                 
+                if (escola.QtdProfessores().equals(0)){
+                    nome_professor = "Nenhum";
+                } else {
+                   nome_professor = escola.NomeDiscenteDaDisciplina(idd_disciplina); 
+                }
+                
                 jLabel45.setText(id_disciplina);
                 jLabel46.setText(nome_disciplina);
-                jLabel47.setText(sigla_disciplina);
-                jLabel49.setText(nome_professor);
-                jLabel50.setText(numero_alunos.toString());
+                jLabel47.setText(sigla_disciplina+id_disciplina);
+                jLabel49.setText(nome_professor); 
+                jLabel51.setText(numero_alunos.toString());
                 
                 for(int j = 0; j < escola.QtdAlunos(); j++){
                    //Integer idd_disciplina = Integer.parseInt(id_disciplina);
@@ -1613,6 +1623,19 @@ public class GUI extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_jComboBox6FocusGained
+
+    private void jComboBox4FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jComboBox4FocusGained
+        // TODO add your handling code here:
+        Integer numero_aluno = escola.NumeroAlunosNoCurso(jComboBox4.getSelectedItem().toString());
+        Integer numero_disciplinas = escola.NumeroDisciplinasNoCurso(jComboBox4.getSelectedItem().toString());
+        
+        jLabel42.setText(numero_aluno.toString());
+        jLabel43.setText(numero_disciplinas.toString());
+    }//GEN-LAST:event_jComboBox4FocusGained
+
+    private void jComboBox6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox6ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox6ActionPerformed
 
     /**
      * @param args the command line arguments
